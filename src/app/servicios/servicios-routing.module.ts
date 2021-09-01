@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { ServiciosPage } from './servicios.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ServiciosPage
+  },
+  {
+    path: 'detalle-prod',
+    loadChildren: () => import('./detalle-prod/detalle-prod.module').then( m => m.DetalleProdPageModule)
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class ServiciosPageRoutingModule {}
